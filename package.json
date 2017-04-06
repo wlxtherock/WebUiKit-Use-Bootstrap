@@ -1,0 +1,53 @@
+{
+  "name": "bootstrap-sass",
+  "version": "3.3.7",
+  "description": "bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications.",
+  "main": "assets/javascripts/bootstrap.js",
+  "style": "assets/stylesheets/_bootstrap.scss",
+  "sass": "assets/stylesheets/_bootstrap.scss",
+  "files": [
+    "assets",
+    "eyeglass-exports.js",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/twbs/bootstrap-sass"
+  },
+  "keywords": [
+    "bootstrap",
+    "sass",
+    "css",
+    "eyeglass-module"
+  ],
+  "contributors": [
+    "Thomas McDonald",
+    "Tristan Harward",
+    "Peter Gumeson",
+    "Gleb Mazovetskiy"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/twbs/bootstrap-sass/issues"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps":"^2.5.1",
+    "gulp-uglify":"^2.1.2",
+    "gulp-clean":"^0.3.2"
+  },
+  "devDependencies": {
+    "node-sass": "^3.8.0",
+    "mincer": "~1.4.0",
+    "ejs": "~2.4.2"
+  },
+  "eyeglass": {
+    "exports": "eyeglass-exports.js",
+    "needs": "^0.7.1"
+  }
+}
