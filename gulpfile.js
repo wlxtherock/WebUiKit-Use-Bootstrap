@@ -4,6 +4,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var clean  = require('gulp-clean');
+var browserSync = require("browser-sync").create();
 
 gulp.task('clean',function(){
     gulp.src(['dist/css/*','dist/js/*'],{read:false})
@@ -12,7 +13,7 @@ gulp.task('clean',function(){
 
 gulp.task('bootstrap',['clean'], function ( done ) {
     gulp.src('./assets/fonts/bootstrap/*')
-        .pipe(gulp.dest('./dist/fonts'));
+        .pipe(gulp.dest('./dist/fonts/bootstrap'));
 
     gulp.src('./assets/javascripts/bootstrap.js')
         .pipe(uglify())
@@ -25,10 +26,21 @@ gulp.task('bootstrap',['clean'], function ( done ) {
         .pipe(sourcemaps.write('./maps'))
         .pipe(rename({ extname: '.min.css' }))
         .pipe(gulp.dest('./dist/css'))
+        .pipe(browserSync.stream())
         .on('end',done);
 });
 
-gulp.task('default',['bootstrap']);
+gulp.task('serve', ['bootstrap'], function() {
+
+    browserSync.init({
+        server: "./"
+    });
+
+    gulp.watch("./assets/stylesheets/**/*.scss", ['bootstrap']);
+    gulp.watch("index.html").on('change', browserSync.reload);
+});
+
+gulp.task('default',['serve']);
 
 /*
 var gulp = require('gulp');
